@@ -1,0 +1,21 @@
+{
+    "name": "clarion-app/contacts-backend",
+    "type": "library",
+    "require": {
+        "clarion-app/eloquent-multichain-bridge": "dev-main",
+        "illuminate/support": "^12.0@dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ClarionApp\\ContactsBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tim Schwartz",
+            "email": "tim@metaverse.systems"
+        }
+    ],
+    "minimum-stability": "dev"
+}
