@@ -8,7 +8,7 @@ use ClarionApp\ContactsBackend\Controllers\PhoneController;
 use ClarionApp\ContactsBackend\Controllers\ContactGroupController;
 use ClarionApp\ContactsBackend\Controllers\SearchController;
 
-Route::group(['prefix'=>'api/clarion-app/contacts'], function () {
+Route::group(['prefix'=>'api/clarion-app/contacts', 'middleware' => 'auth:api'], function () {
     // Contact routes
     Route::resource('contacts', ContactController::class)->except(['create', 'edit']);
     
