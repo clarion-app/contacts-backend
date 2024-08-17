@@ -18,10 +18,12 @@ Route::group(['prefix'=>'api/clarion-app/contacts', 'middleware' => 'auth:api'],
     // Email routes
     Route::post('/emails', [EmailController::class, 'store']);
     Route::delete('/emails/{id}', [EmailController::class, 'destroy']);
+    Route::put('/emails/{id}', [EmailController::class, 'update']);
 
     // Phone routes
     Route::post('/phones', [PhoneController::class, 'store']);
     Route::delete('/phones/{id}', [PhoneController::class, 'destroy']);
+    Route::put('/phones/{id}', [PhoneController::class, 'update']);
 
     // Contact-Group linking routes
     Route::post('/contacts/{contactId}/groups/{groupId}', [ContactGroupController::class, 'attach']);

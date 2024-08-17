@@ -11,11 +11,23 @@ class PhoneController extends Controller
     public function store(Request $request) {
         $validated = $request->validate([
             'contact_id' => 'required|uuid',
-            'phone_number' => 'required|string'
+            'phone_number' => 'required|string',
+            'label' => 'nullable|string'
         ]);
 
         $phone = Phone::create($validated);
         return response()->json($phone, 201);
+    }
+
+    public function update(Request $request, $id) {
+        $phone = Phone::findOrFail($id);
+        $validated = $request->validate([
+            'phone_number' => 'sometimes|string',
+            'label' => 'nullable|string'
+        ]);
+
+        $phone->update($validated);
+        return response()->json($phone);
     }
 
     public function destroy($id) {
