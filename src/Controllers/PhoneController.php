@@ -26,7 +26,7 @@ class PhoneController extends Controller
     }
 
     /**
-     * Update an existing phone number.
+     * Update a contact's existing phone number.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  string  $id
@@ -44,7 +44,7 @@ class PhoneController extends Controller
     }
 
     /**
-     * Delete a phone number.
+     * Delete a phone number for a contact.
      *
      * @param  string  $id
      * @return \Illuminate\Http\Response
