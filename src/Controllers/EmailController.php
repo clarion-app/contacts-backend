@@ -8,6 +8,12 @@ use ClarionApp\ContactsBackend\Models\Email;
 
 class EmailController extends Controller
 {
+    /**
+     * Store a new email address for a contact.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request) {
         $validated = $request->validate([
             'contact_id' => 'required|uuid',
@@ -19,6 +25,13 @@ class EmailController extends Controller
         return response()->json($email, 201);
     }
 
+    /**
+     * Update a contact's existing email address.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id) {
         $email = Email::findOrFail($id);
         $validated = $request->validate([
@@ -30,6 +43,12 @@ class EmailController extends Controller
         return response()->json($email);
     }
 
+    /**
+     * Delete an email address from a contact.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id) {
         $email = Email::findOrFail($id);
         $email->delete();
