@@ -9,6 +9,17 @@ use ClarionApp\ContactsBackend\Models\Phone;
 class PhoneController extends Controller
 {
     /**
+     * Get all phone numbers for a contact.
+     * 
+     * @param  string  $contact_id
+     * @return \Illuminate\Http\Response
+     */
+    public function index($contact_id) {
+        $phones = Phone::where('contact_id', $contact_id)->get();
+        return response()->json($phones);
+    }
+
+    /**
      * Store a new phone number for a contact.
      *
      * @param  \Illuminate\Http\Request  $request

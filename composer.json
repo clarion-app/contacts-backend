@@ -2,8 +2,7 @@
     "name": "clarion-app/contacts-backend",
     "type": "library",
     "require": {
-        "clarion-app/eloquent-multichain-bridge": "dev-main",
-        "illuminate/support": "^12.0@dev"
+        "clarion-app/eloquent-multichain-bridge": "dev-main"
     },
     "license": "MIT",
     "autoload": {
@@ -17,5 +16,12 @@
             "email": "tim@metaverse.systems"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ClarionApp\\ContactsBackend\\ContactsBackendServiceProvider"
+            ]
+        }
+    }
 }

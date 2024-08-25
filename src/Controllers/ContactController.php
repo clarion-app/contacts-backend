@@ -5,6 +5,7 @@ namespace ClarionApp\ContactsBackend\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use ClarionApp\ContactsBackend\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -29,10 +30,10 @@ class ContactController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'type' => 'required|in:personal,business',
-            'user_id' => 'required|uuid'
+            'type' => 'required|in:personal,business'
         ]);
 
+        $validated['user_id'] = Auth::id();
         $contact = Contact::create($validated);
         return response()->json($contact, 201);
     }

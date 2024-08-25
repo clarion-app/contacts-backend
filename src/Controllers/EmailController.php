@@ -9,6 +9,17 @@ use ClarionApp\ContactsBackend\Models\Email;
 class EmailController extends Controller
 {
     /**
+     * Get all email addresses for a contact.
+     * 
+     * @param  string  $contact_id
+     * @return \Illuminate\Http\Response
+     */
+    public function index($contact_id) {
+        $emails = Email::where('contact_id', $contact_id)->get();
+        return response()->json($emails);
+    }
+
+    /**
      * Store a new email address for a contact.
      *
      * @param  \Illuminate\Http\Request  $request
