@@ -22,6 +22,10 @@
             "providers": [
                 "ClarionApp\\ContactsBackend\\ContactsBackendServiceProvider"
             ]
+        },
+        "clarion": {
+            "app-name": "@clarion-app/contacts",
+            "description": "Provides operations for managing contacts"
         }
     }
 }
